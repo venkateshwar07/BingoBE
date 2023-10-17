@@ -1,4 +1,5 @@
 # This is a sample Python script.
+import uvicorn
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 import paho.mqtt.publish as mqtt_publish
 from starlette.middleware.cors import CORSMiddleware
@@ -115,4 +116,7 @@ def generate_random_code():
     import random
     import string
     return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+
+
+uvicorn.run(app,host = 'localhost' ,port = 5000)
 
